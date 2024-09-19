@@ -59,7 +59,7 @@ def generate_blog_promotion_content_zeroshot_eng(lecture_name, target_audience, 
   prompt = f"""
   Objective:
   - Please write a promotional message for {lecture_name} that {target_audience} can easily understand.
-  - Please make the content clear and appeling so that people feel motivated to enroll.
+  - Please make the content clear and appealing so that people feel motivated to enroll.
 
   Context:
   - Please create content tailored for {target_audience}, making it relevant for those interested in {lecture_name}.
@@ -71,7 +71,7 @@ def generate_blog_promotion_content_zeroshot_eng(lecture_name, target_audience, 
   - Please write clearly a brief introduction, curriculum, instructor introduction, course benefits, and how to apply. 
   - Please refer to information from the internet to maintain up-to-date relevance.
   - Please add key hashtags at the end of the content in the format #Keyword.
-  - Please keep a frinendly tone overall, and use a lot of emojis.
+  - Please keep a friendly tone overall, and use a lot of emojis.
   - Please write the output in Korean and ensure that it is naturally translated.
 
   Restrictions:
