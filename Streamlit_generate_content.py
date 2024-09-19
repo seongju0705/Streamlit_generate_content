@@ -9,7 +9,7 @@ def generate_blog_promotion_content_zeroshot(lecture_name, target_audience, api_
   prompt = f"""
   목표:
   - {target_audience}도 쉽게 이해할 수 있는 {lecture_name}의 홍보 문구를 작성해 주세요.
-  - 강의의 특징과 수강 혜택을 명확하게 전달하여 사람들이 수강하고 싶도록 만들어 주세요.
+  - 내용을 명확하고 매력적으로 작성하여 사람들이 수강하고 싶도록 만들어 주세요.
 
   맥락:
   - {target_audience}을 대상으로 하여 {lecture_name}에 관심이 있는 분들에게 적합한 내용으로 구성해 주세요.
@@ -17,15 +17,15 @@ def generate_blog_promotion_content_zeroshot(lecture_name, target_audience, api_
 
   지시사항:
   - {lecture_name}의 주요 개념을 {target_audience}이 이해할 수 있도록 간결하고 명확하게 설명해 주세요.
-  - 강의의 개요, 차별화된 특징, 그리고 수강 혜택을 명확하게 포함해 주세요.
   - {lecture_name}이 실제 생활에서 어떻게 도움이 되는지 구체적으로 설명하여 {target_audience}이 배우고 싶어 하도록 유도해 주세요.
+  - 강의 개요, 커리큘럼, 강사 소개, 수강 혜택, 신청 방법을 명확하게 작성해 주세요.
   - 최신 정보와 관련성을 유지하기 위해 인터넷에서 검색한 내용을 참고해 주세요.
   - 홍보 문구 마지막에 주요 핵심 키워드를 #키워드 형태로 포함해 주세요.
-  - 전체적으로 친근한 어조를 유지하며, 적절히 이모티콘을 사용하여 독자와의 친밀감을 높여 주세요.
+  - 전체적으로 친근한 어조를 유지하며, 이모티콘을 충분히 사용해 주세요.
 
   제약사항:
-  - 핵심 키워드 중심으로 작성해 주세요. 
-  - 문단과 주요 포인트 사이에 적절한 줄 바꿈을 추가해 주세요.
+  - 친근하고 부드러운 톤을 유지해 주세요.
+  - 마지막에는 즉시 수강을 결심하도록 유도하는 콜투액션을 포함해 주세요.
 
   결과 설정:
   - 형식: 블로그 홍보 문구
@@ -39,7 +39,6 @@ def generate_blog_promotion_content_zeroshot(lecture_name, target_audience, api_
         {"role": "system", "content": "당신은 블로그 홍보 콘텐츠를 작성하는 마케터입니다."},
         {"role": "user", "content": prompt}
     ],
-    max_tokens=1000
   )
   
   prompt_result = response.choices[0].message.content    
@@ -59,30 +58,30 @@ def generate_blog_promotion_content_zeroshot_eng(lecture_name, target_audience, 
   
   prompt = f"""
   Objective:
-  - Write a promotional text for {lecture_name} that is easy for {target_audience} to understand.
-  - Clearly highlight the course features and benefits to motivate people to enroll.
+  - Please write a promotional message for {lecture_name} that {target_audience} can easily understand.
+  - Please make the content clear and appeling so that people feel motivated to enroll.
 
   Context:
-  - The content should be tailored for {target_audience} who are interested in {lecture_name}.
-  - Explain the course content in a simple way so {target_audience} feel comfortable participating.
+  - Please create content tailored for {target_audience}, making it relevant for those interested in {lecture_name}.
+  - Please explain the contents of the lecture easily so that {target_audience} can participate without hesitation.
 
   Instructions:
-  - Clearly and concisely explain the key concepts of {lecture_name} in a way {target_audience} can understand.
-  - Include the course overview, key features, and benefits.
-  - Show how {lecture_name} can be practically applied to daily life, encouraging {target_audience} to learn.
-  - Include relevant, up-to-date information based on internet research.
-  - Add key hashtags at the end of the text in the formaLLt #Keyword.
-  - Keep a friendly tone and use emojis to increase engagement.
+  - Please explain the key concepts of {lecture_name} clearly so that {target_audience} can understand.
+  - Please explain specifically how {lecture_name} helps in real life and encourage {target_audience} to want to learn.
+  - Please write clearly a brief introduction, curriculum, instructor introduction, course benefits, and how to apply. 
+  - Please refer to information from the internet to maintain up-to-date relevance.
+  - Please add key hashtags at the end of the content in the format #Keyword.
+  - Please keep a frinendly tone overall, and use a lot of emojis.
+  - Please write the output in Korean and ensure that it is naturally translated.
 
   Restrictions:
-  - Avoid technical jargon and use simple language.
-  - Maintain appropriate line breaks between paragraphs and key points.
-  - **The final response should be in Korean.**
+  - Please keep a friendly and soft tone.
+  - At the end, please include a call-to-action that encourages immediate enrollment.
 
-  Result:
-  - Format: Blog promotional text
+  Expected Output:
+  - Format: Blog promotional content
   - Length: 700-1000 characters
-  - Tone & Style: Informative, persuasive, and friendly
+  - Tone & Manner: Informative, persuasive, and friendly
   """
   
   response = openai.chat.completions.create(
@@ -91,7 +90,6 @@ def generate_blog_promotion_content_zeroshot_eng(lecture_name, target_audience, 
         {"role": "system", "content": "당신은 블로그 홍보 콘텐츠를 작성하는 마케터입니다."},
         {"role": "user", "content": prompt}
     ],
-    max_tokens=1000
   )
   
   prompt_result = response.choices[0].message.content    
