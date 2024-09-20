@@ -125,7 +125,7 @@ def main():
             bill = zeroshot_result[1]
         
             result_container = st.container(border=True)
-            result_container.text(f"분석 소요 시간은 {datetime.now() - start} 입니다.")
+            result_container.write(f"분석 소요 시간은 {datetime.now() - start} 입니다.")
             result_container.write(f"예상되는 부과 비용은 ${bill} 입니다.")
             st.write(content)
             
@@ -136,7 +136,7 @@ def main():
             bill = zeroshot_eng_result[1]
         
             result_container = st.container(border=True)
-            result_container.text(f"분석 소요 시간은 {datetime.now() - start} 입니다.")
+            result_container.write(f"분석 소요 시간은 {datetime.now() - start} 입니다.")
             result_container.write(f"예상되는 부과 비용은 ${bill} 입니다.")
             st.write(content)
       else:
