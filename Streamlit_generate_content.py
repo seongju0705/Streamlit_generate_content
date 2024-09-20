@@ -26,7 +26,7 @@ def generate_blog_promotion_content_zeroshot(lecture_name, target_audience, api_
 
   제약사항:
   - 친근하고 부드러운 톤을 유지해 주세요.
-  - 마지막에는 즉시 수강을 결심하도록 유도하는 콜투액션을 포함해 주세요.
+  - 즉시 수강을 결심하도록 유도하는 콜투액션을 포함해 주세요.
 
   결과 설정:
   - 형식: 블로그 홍보 문구
