@@ -21,7 +21,7 @@ def generate_blog_promotion_content_zeroshot(lecture_name, target_audience, api_
   - {lecture_name}이 실제 생활에서 어떻게 도움이 되는지 구체적으로 설명하여 {target_audience}이 배우고 싶어 하도록 유도해 주세요.
   - 강의 개요, 커리큘럼, 강사 소개, 수강 혜택, 신청 방법을 명확하게 작성해 주세요.
   - 최신 정보와 관련성을 유지하기 위해 인터넷에서 검색한 내용을 참고해 주세요.
-  - 홍보 문구 마지막에 콜투액션을 포함하고, 주요 핵심 키워드를 #키워드 형태로 포함해 주세요.
+  - 홍보 문구 마지막에 콜투액션을 추가하고, 그 뒤에 주요 핵심 키워드를 #키워드 형태로 포함해 주세요.
   - 전체적으로 친근한 어조를 유지하며, 이모티콘을 충분히 사용해 주세요.
 
   제약사항:
@@ -70,7 +70,7 @@ def generate_blog_promotion_content_zeroshot_eng(lecture_name, target_audience, 
   - Please explain specifically how {lecture_name} helps in real life and encourage {target_audience} to want to learn.
   - Please write clearly a brief introduction, curriculum, instructor introduction, course benefits, and how to apply. 
   - Please refer to information from the internet to maintain up-to-date relevance.
-  - Please include a call-to-action at the end of the content, followed by the key hashtags in the format #keyword.
+  - Please add a call-to-action at the end of the content, followed by the key hashtags in the format #keyword.
   - Please keep a friendly tone overall, and use a lot of emojis.
   - Please write the output in Korean and ensure that it is naturally translated.
 
