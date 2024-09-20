@@ -1,7 +1,7 @@
 import openai
 import streamlit as st
 import tiktoken
-from datetime import datetime
+from datetime import datetime 
 
 def generate_blog_promotion_content_zeroshot(lecture_name, target_audience, api_key):
   
@@ -21,12 +21,11 @@ def generate_blog_promotion_content_zeroshot(lecture_name, target_audience, api_
   - {lecture_name}이 실제 생활에서 어떻게 도움이 되는지 구체적으로 설명하여 {target_audience}이 배우고 싶어 하도록 유도해 주세요.
   - 강의 개요, 커리큘럼, 강사 소개, 수강 혜택, 신청 방법을 명확하게 작성해 주세요.
   - 최신 정보와 관련성을 유지하기 위해 인터넷에서 검색한 내용을 참고해 주세요.
-  - 홍보 문구 마지막에 주요 핵심 키워드를 #키워드 형태로 포함해 주세요.
+  - 홍보 문구 마지막에 콜투액션을 포함하고, 주요 핵심 키워드를 #키워드 형태로 포함해 주세요.
   - 전체적으로 친근한 어조를 유지하며, 이모티콘을 충분히 사용해 주세요.
 
   제약사항:
   - 친근하고 부드러운 톤을 유지해 주세요.
-  - 즉시 수강을 결심하도록 유도하는 콜투액션을 포함해 주세요.
 
   결과 설정:
   - 형식: 블로그 홍보 문구
@@ -71,13 +70,12 @@ def generate_blog_promotion_content_zeroshot_eng(lecture_name, target_audience, 
   - Please explain specifically how {lecture_name} helps in real life and encourage {target_audience} to want to learn.
   - Please write clearly a brief introduction, curriculum, instructor introduction, course benefits, and how to apply. 
   - Please refer to information from the internet to maintain up-to-date relevance.
-  - Please add key hashtags at the end of the content in the format #Keyword.
+  - Please include a call-to-action at the end of the content, followed by the key hashtags in the format #keyword.
   - Please keep a friendly tone overall, and use a lot of emojis.
   - Please write the output in Korean and ensure that it is naturally translated.
 
   Restrictions:
   - Please keep a friendly and soft tone.
-  - At the end, please include a call-to-action that encourages immediate enrollment.
 
   Expected Output:
   - Format: Blog promotional content
@@ -117,6 +115,7 @@ def main():
   if st.sidebar.button(":memo: 홍보 콘텐츠 생성"):
       if lecture_name and target_audience:
         with st.spinner("콘텐츠를 생성 중입니다..."):
+          
           tab1, tab2 = st.tabs(["**KOR**", "**ENG**"])
 
           with tab1:
