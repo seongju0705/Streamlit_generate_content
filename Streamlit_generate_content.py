@@ -1,7 +1,7 @@
 import openai
 import streamlit as st
 import tiktoken
-import datetime
+from datetime import datetime
 
 def generate_blog_promotion_content_zeroshot(lecture_name, target_audience, api_key):
   
