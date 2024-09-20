@@ -1,6 +1,7 @@
 import openai
 import streamlit as st
 import tiktoken
+import datetime
 
 def generate_blog_promotion_content_zeroshot(lecture_name, target_audience, api_key):
   
@@ -90,6 +91,7 @@ def generate_blog_promotion_content_zeroshot_eng(lecture_name, target_audience, 
         {"role": "system", "content": "당신은 블로그 홍보 콘텐츠를 작성하는 마케터입니다."},
         {"role": "user", "content": prompt}
     ],
+    max_tokens=1000
   )
   
   prompt_result = response.choices[0].message.content    
@@ -115,27 +117,32 @@ def main():
   if st.sidebar.button(":memo: 홍보 콘텐츠 생성"):
       if lecture_name and target_audience:
         with st.spinner("콘텐츠를 생성 중입니다..."):
-          zeroshot_result = generate_blog_promotion_content_zeroshot(lecture_name, target_audience, api_key)
-          zeroshot_eng_result = generate_blog_promotion_content_zeroshot_eng(lecture_name, target_audience, api_key)
-          st.success(":tada: 홍보 콘텐츠가 생성되었습니다!")
           
           tab1, tab2 = st.tabs(["**KOR**", "**ENG**"])
 
           with tab1:
+            start = datetime.now()
+            zeroshot_result = generate_blog_promotion_content_zeroshot(lecture_name, target_audience, api_key)
             content = zeroshot_result[0]
             bill = zeroshot_result[1]
         
             result_container = st.container(border=True)
+            result_container.text(f"분석 소요 시간은 {datetime.now() - start} 입니다.")
             result_container.write(f"예상되는 부과 비용은 ${bill} 입니다.")
             st.write(content)
             
           with tab2:
+            start = datetime.now()
+            zeroshot_eng_result = generate_blog_promotion_content_zeroshot_eng(lecture_name, target_audience, api_key)
             content = zeroshot_eng_result[0]
             bill = zeroshot_eng_result[1]
         
             result_container = st.container(border=True)
+            result_container.text(f"분석 소요 시간은 {datetime.now() - start} 입니다.")
             result_container.write(f"예상되는 부과 비용은 ${bill} 입니다.")
             st.write(content)
+          
+          st.success(":tada: 홍보 콘텐츠가 생성되었습니다!")
       else:
         st.error(":warning: 강의명과 대상을 입력해주세요!")
 
